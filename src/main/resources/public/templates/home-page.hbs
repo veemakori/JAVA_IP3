@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>WILDLIFE TRACKER</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<style>
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .landing-page {
+        background-image: url("images/backgrounds/jaguars.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 100vh;
+    }
+</style>
+<body class="landing-page">
+
+<nav class="navbar navbar-expand-lg bg-body-none">
+    <div class="container">
+        <span class="navbar-brand">WEEK3IP</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/add-animal">Add Animal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/add-ranger">Add Ranger</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Reports</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/animals">All Animals</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/sightings">All Sightings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/rangers">All Rangers</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<div class="container py-3 " >
+    {{#if animal}}
+    <div class="row mx-5">
+        {{#each animal}}
+        <div class="card border border-0 col-1 rounded bg-transparent d-flex flex-column align-content-center listItem" style="width: 12rem; height: 12rem">
+            <img src="images/animals/{{animal}}.jpeg" class="card-img-top img-fluid border-light rounded shadow-lg m-0" alt="" style="width: 12rem; height: 12rem">
+            <div class="my-2">
+                <div class=""><a href="/sighting/{{animal}}" class="stretched-link text-decoration-none text-light"><h6 class="card-title text-center">{{animal}}</h6></a></div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <div class="text-center my-5 py-5">
+        <a href="/add-animal" class="my-5 text-decoration-none text-light display-2">ADD ANIMAL <br><i class="bi bi-plus-circle-fill"></i></a>
+    </div>
+    {{/if}}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
