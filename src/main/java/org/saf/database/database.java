@@ -1,6 +1,6 @@
 package org.saf.database;
 import org.sql2o.Sql2o;
-public class db {
+public class database {
     private static final Sql2o connection = new Sql2o (
 
             "jdbc:postgresql://localhost:5432/wildlife_tracker",
